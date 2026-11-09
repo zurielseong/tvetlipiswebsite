@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+.animate-floaty { animation: floaty 7s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .animate-floaty { animation: none; } }
+
 body {
   font-family: 'Poppins', system-ui, sans-serif;
   background: #ffffff;
@@ -14,12 +18,37 @@ body {
 
 @layer components {
   .container-x { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
-  .bg-grid {
-    background-color: #fff;
-    background-image:
-      linear-gradient(rgba(6,62,135,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(6,62,135,.06) 1px, transparent 1px);
-    background-size: 32px 32px;
+  /* Latar ceria (ganti grid) */
+  .bg-hero {
+    background:
+      radial-gradient(circle at 88% 12%, rgba(255,196,0,.45), transparent 38%),
+      radial-gradient(circle at 5% 95%, rgba(209,31,72,.45), transparent 42%),
+      radial-gradient(circle at 55% 110%, rgba(255,255,255,.18), transparent 40%),
+      linear-gradient(135deg, #063E87 0%, #0B5BC9 55%, #2F8BF0 100%);
+  }
+  .bg-sunny {
+    background:
+      radial-gradient(circle at 0% 60%, rgba(255,196,0,.22), transparent 35%),
+      radial-gradient(circle at 100% 100%, rgba(255,150,170,.18), transparent 35%),
+      #FFFBEF;
+  }
+  .bg-sky {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(47,139,240,.16), transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(255,196,0,.14), transparent 35%),
+      #F1F7FF;
+  }
+  .bg-blush {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(209,31,72,.12), transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(47,139,240,.12), transparent 40%),
+      #FFF5F7;
+  }
+  .bg-sunshine {
+    background:
+      radial-gradient(circle at 90% 10%, rgba(255,255,255,.55), transparent 35%),
+      radial-gradient(circle at 10% 100%, rgba(255,120,80,.30), transparent 40%),
+      linear-gradient(135deg, #FFC400 0%, #FFD84D 100%);
   }
   .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-4; }
   .btn-cta { @apply btn bg-brand-green text-white hover:bg-brand-greendark shadow-lg shadow-brand-green/25 focus-visible:ring-brand-green/30; }

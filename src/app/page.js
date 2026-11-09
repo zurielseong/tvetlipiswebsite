@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { CONTACT, PPT, PROGRAMS, ABOUT } from '@/lib/site'
 import Icon, { WhatsAppGlyph } from '@/components/Icon'
-import { SectionHead, Faq, Steps } from '@/components/ui'
+import { SectionHead, Faq, Steps, Deco, Wave } from '@/components/ui'
 
 const QUICK = [
   { icon: 'diploma', title: 'PPT Diploma Pra-Sekolah', text: 'Guru tadika yang bekerja: dapatkan DKM Tahap 4.', href: '/ppt/', accent: 'bg-brand-red' },
@@ -50,10 +50,9 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-brand-navy">
-        <div className="absolute inset-0 opacity-[.1] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:32px_32px]" />
-        <div className="absolute -left-32 top-10 h-96 w-96 rounded-full bg-brand-red/30 blur-3xl" />
-        <div className="container-x relative grid items-center gap-14 pb-36 pt-14 md:pt-20 lg:grid-cols-[1.1fr_.9fr]">
+      <section className="bg-hero relative overflow-hidden">
+        <Deco />
+        <div className="container-x relative grid items-center gap-14 pb-28 pt-14 md:pt-20 lg:grid-cols-[1.1fr_.9fr]">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white ring-1 ring-white/20">
               <span className="h-2 w-2 rounded-full bg-brand-yellow" /> Memanggil semua cikgu tadika
@@ -75,10 +74,11 @@ export default function HomePage() {
           </div>
           <HeroVisual />
         </div>
+        <Wave fill="#FFFBEF" className="relative -mb-px" />
       </section>
 
       {/* QUICK ACCESS (bertindih dengan hero) */}
-      <section className="relative z-10 -mt-24">
+      <section className="relative z-10 -mt-24 bg-[linear-gradient(to_bottom,transparent_6rem,#FFFBEF_6rem)] md:-mt-28 md:bg-[linear-gradient(to_bottom,transparent_7rem,#FFFBEF_7rem)]">
         <div className="container-x grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {QUICK.map((q) => {
             const inner = (
@@ -104,7 +104,7 @@ export default function HomePage() {
       </section>
 
       {/* APA ITU PPT */}
-      <section className="bg-grid py-20 md:py-24">
+      <section className="bg-sunny py-20 md:py-24">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <div>
             <SectionHead eyebrow="Apa itu PPT?" title="Kemahiran yang anda sudah ada, diiktiraf dengan Diploma" lead={PPT.whatIs} />
@@ -124,14 +124,15 @@ export default function HomePage() {
       </section>
 
       {/* KENAPA SEKARANG */}
-      <section className="bg-brand-navyink py-20 md:py-24">
-        <div className="container-x">
-          <SectionHead light eyebrow="Kenapa sekarang?" title="KPM tegaskan: guru prasekolah perlu sekurang-kurangnya diploma" />
+      <section className="bg-sunshine relative overflow-hidden py-20 md:py-24">
+        <Deco variant="dark" />
+        <div className="container-x relative">
+          <SectionHead eyebrow="Kenapa sekarang?" title="KPM tegaskan: guru prasekolah perlu sekurang-kurangnya diploma" />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {PPT.whyNow.map((w, i) => (
-              <div key={w.stat} className="rounded-2xl border border-white/10 bg-white/5 p-7">
-                <p className={`text-3xl font-extrabold ${['text-brand-yellow', 'text-white', 'text-[#FF6B8E]'][i]}`}>{w.stat}</p>
-                <p className="mt-3 text-sm leading-relaxed text-white/75">{w.text}</p>
+              <div key={w.stat} className="rounded-3xl bg-white p-7 shadow-xl shadow-[#B38600]/15">
+                <p className={`text-3xl font-extrabold ${['text-brand-red', 'text-brand-navy', 'text-[#0B5BC9]'][i]}`}>{w.stat}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{w.text}</p>
               </div>
             ))}
           </div>
@@ -157,7 +158,7 @@ export default function HomePage() {
       </section>
 
       {/* PROSES */}
-      <section className="bg-grid border-y border-slate-200 py-20 md:py-24">
+      <section className="bg-sky py-20 md:py-24">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionHead eyebrow="Bagaimana program berjalan" title="6 langkah, 2 sesi bersemuka" />
@@ -170,8 +171,8 @@ export default function HomePage() {
       {/* YURAN */}
       <section className="py-20 md:py-24">
         <div className="container-x">
-          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-brand-navy to-brand-navydark shadow-card lg:grid lg:grid-cols-[1.2fr_1fr]">
-            <div className="p-8 md:p-12">
+          <div className="bg-hero relative overflow-hidden rounded-[2rem] shadow-card lg:grid lg:grid-cols-[1.2fr_1fr]">
+            <div className="relative p-8 md:p-12">
               <div className="eyebrow !text-brand-yellow before:!bg-brand-yellow">Yuran program</div>
               <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">PPT Diploma Pra-Sekolah</h2>
               <p className="mt-2 text-white/70">{PPT.name}</p>
@@ -181,7 +182,7 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col justify-center bg-white/5 p-8 md:p-12">
+            <div className="relative flex flex-col justify-center bg-white/10 p-8 backdrop-blur-sm md:p-12">
               <p className="text-sm text-white/60">Harga biasa <span className="line-through">{PPT.priceWas}</span></p>
               <p className="mt-1 text-5xl font-extrabold text-white md:text-6xl">{PPT.price}</p>
               <p className="mt-2 text-sm text-white/60">Batch bermula apabila cukup 4 calon.</p>
@@ -195,7 +196,7 @@ export default function HomePage() {
       </section>
 
       {/* SEPENUH MASA */}
-      <section className="bg-slate-50 py-20 md:py-24">
+      <section className="bg-blush py-20 md:py-24">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionHead eyebrow="Lepasan SPM / belia 16–30 tahun" title="Program diploma sepenuh masa" lead="2 tahun, 70% amali. Tidak perlu SPM, tiada temu duga. Dibiayai PTPK dengan elaun RM400 sebulan." />

@@ -1,6 +1,6 @@
 import { CONTACT, FULLTIME, PROGRAMS } from '@/lib/site'
 import Icon, { WhatsAppGlyph } from '@/components/Icon'
-import { PageHero, SectionHead, KeyTable, CheckList } from '@/components/ui'
+import { PageHero, SectionHead, KeyTable, CheckList, Deco } from '@/components/ui'
 
 export const metadata = {
   title: 'Program Diploma Sepenuh Masa (Lepasan SPM)',
@@ -24,7 +24,7 @@ export default function ProgramPage() {
       </PageHero>
 
       {/* Programs */}
-      <section className="bg-grid py-16 md:py-20">
+      <section className="bg-sunny py-16 md:py-20">
         <div className="container-x">
           <SectionHead eyebrow="Pilih bidang anda" title="Program ditawarkan" />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -78,12 +78,13 @@ export default function ProgramPage() {
       </section>
 
       {/* Asrama */}
-      <section className="bg-brand-navyink py-16 md:py-20">
-        <div className="container-x grid items-center gap-10 lg:grid-cols-2">
+      <section className="bg-hero relative overflow-hidden py-16 md:py-20">
+        <Deco />
+        <div className="container-x relative grid items-center gap-10 lg:grid-cols-2">
           <SectionHead light eyebrow="Asrama" title="Tinggal dalam bangunan yang sama dengan kolej" lead="RM150 sebulan + utiliti (wajib kecuali penduduk Lipis). Percuma untuk pelajar Multimedia." />
           <ul className="grid gap-3 sm:grid-cols-2">
             {FULLTIME.hostel.map((h) => (
-              <li key={h} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-white/85">
+              <li key={h} className="flex items-center gap-3 rounded-2xl bg-white/15 p-4 font-medium text-white backdrop-blur-sm">
                 <Icon name="shield" className="h-5 w-5 shrink-0 text-brand-yellow" />{h}
               </li>
             ))}

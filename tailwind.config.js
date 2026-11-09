@@ -7,7 +7,7 @@ module.exports = {
         brand: {
           navy: '#063E87',
           navydark: '#042B5F',
-          navyink: '#021B3D',
+          navyink: '#052C61',
           red: '#D11F48',
           yellow: '#FFC400',
           green: '#1F9D55',
