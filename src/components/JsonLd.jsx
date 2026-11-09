@@ -1,3 +1,5 @@
+import { CONTACT, PPT } from '@/lib/site'
+
 export default function JsonLd() {
   const schema = {
     '@context': 'https://schema.org',
@@ -5,22 +7,32 @@ export default function JsonLd() {
       {
         '@type': 'EducationalOrganization',
         '@id': 'https://tvetlipis.my/#organization',
-        name: 'Akademi Pembangunan Kemahiran USIM Kuala Lipis (TVET Lipis)',
-        alternateName: ['TVET Lipis', 'Kolej Islam Antarabangsa Kuala Lipis'],
+        name: 'TVET Lipis',
         url: 'https://tvetlipis.my',
-        telephone: ['+60108086630', '+60164466630'],
-        email: 'admission.tvetlipis@gmail.com',
-        address: { '@type': 'PostalAddress', streetAddress: 'Level 4, Lipis Centrepoint, Jalan Pekeliling', addressLocality: 'Kuala Lipis', addressRegion: 'Pahang', postalCode: '27200', addressCountry: 'MY' },
-        sameAs: ['https://www.tiktok.com/@tvet_lipis'],
-        description: 'Akademi Pembangunan Kemahiran USIM Kuala Lipis menawarkan program DKM/SKM dalam pelbagai bidang. Diiktiraf JPK K16005. Pembiayaan PTPK tersedia.',
+        telephone: '+60108086630',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Tingkat 4, Bangunan Lipis Centrepoint',
+          addressLocality: 'Kuala Lipis',
+          addressRegion: 'Pahang',
+          postalCode: '27200',
+          addressCountry: 'MY',
+        },
+        sameAs: [CONTACT.instagram, CONTACT.tiktok],
+        description:
+          'Hab pendidikan kemahiran di Kuala Lipis yang mengurus program TVET bagi Kolej Islam Antarabangsa (Kolej UIA) dan Akademi USIM. Pusat Penilaian Amali (PPA-PPT) bertauliah JPK.',
+      },
+      {
+        '@type': 'Course',
+        name: PPT.name,
+        description: PPT.whatIs,
+        courseCode: 'P851-002-4:2025',
+        provider: { '@id': 'https://tvetlipis.my/#organization' },
+        offers: { '@type': 'Offer', price: '3800', priceCurrency: 'MYR' },
       },
       {
         '@type': 'FAQPage',
-        mainEntity: [
-          { '@type': 'Question', name: 'Berapa yuran pengajian di TVET Lipis?', acceptedAnswer: { '@type': 'Answer', text: 'Yuran pendaftaran RM500. Yuran pengajian dibiayai sepenuhnya oleh PTPK. Yuran admin RM500 untuk 2 tahun. Penginapan asrama RM150 sebulan.' } },
-          { '@type': 'Question', name: 'Apakah syarat kemasukan program diploma TVET Lipis?', acceptedAnswer: { '@type': 'Answer', text: 'Berumur 16 hingga 35 tahun, boleh membaca, mengira dan menulis, lepasan PT3/SPM/STPM/Tahfiz dan Pondok.' } },
-          { '@type': 'Question', name: 'Apakah itu PPT di TVET Lipis?', acceptedAnswer: { '@type': 'Answer', text: 'PPT membolehkan individu berpengalaman mendapat DKM tanpa belajar dari awal. Tempoh 6 bulan, yuran RM4,000.' } },
-        ],
+        mainEntity: PPT.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
       },
     ],
   }

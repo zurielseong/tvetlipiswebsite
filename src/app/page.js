@@ -1,113 +1,245 @@
 import Link from 'next/link'
-import { PROGRAMS, CONTACT } from '@/lib/programs'
+import { CONTACT, PPT, PROGRAMS, ABOUT } from '@/lib/site'
+import Icon, { WhatsAppGlyph } from '@/components/Icon'
+import { SectionHead, Faq, Steps } from '@/components/ui'
+
+const QUICK = [
+  { icon: 'diploma', title: 'PPT Diploma Pra-Sekolah', text: 'Guru tadika yang bekerja: dapatkan DKM Tahap 4.', href: '/ppt/', accent: 'bg-brand-red' },
+  { icon: 'school', title: 'Program Sepenuh Masa', text: 'Lepasan sekolah 16–30 tahun. Dibiayai PTPK.', href: '/program/', accent: 'bg-brand-navy' },
+  { icon: 'doc', title: 'Semak Kelayakan', text: 'Hantar dokumen, kami semak kelayakan anda.', href: CONTACT.waPPT, accent: 'bg-brand-green', external: true },
+  { icon: 'pin', title: 'Lokasi Kami', text: 'Lipis Centrepoint, berdekatan KTM Kuala Lipis.', href: '/hubungi/', accent: 'bg-brand-yellow' },
+]
 
 const STATS = [
-  { value: '6', label: 'Program Ditawarkan' },
-  { value: '70%', label: 'Pembelajaran Praktikal' },
-  { value: 'PTPK', label: 'Pembiayaan Tersedia' },
-  { value: 'JPK', label: 'Diiktiraf K16005' },
+  { value: '5', unit: 'hari', label: 'bersemuka sahaja (2 + 3 hari)' },
+  { value: '5', unit: 'CU', label: 'unit kompetensi dinilai' },
+  { value: '0', unit: '', label: 'peperiksaan bertulis' },
+  { value: '4', unit: 'calon', label: 'minimum untuk mula batch' },
 ]
 
-const TESTIMONIALS = [
-  { name: 'Afiah Damia inti Saparudin', program: 'Alumni Pendidikan Awal Kanak-Kanak', quote: 'Saya nak berterima kasih kepada pihak pengurusan sebab telah menyediakan fasiliti yang mencukupi selama saya belajar di sini selama 2 tahun.' },
-  { name: 'Nur Aiya Aivee Binti Budi Kartono', program: 'Alumni Pendidikan Awal Kanak-Kanak', quote: 'Saya ingin berterima kasih kepada pihak kolej yang telah menyediakan tempat kediaman yang selesa dan kemudahan dari segi pembelajaran.' },
-  { name: 'Qisna Athirah Binti Hasnan', program: 'Alumni Pendidikan Awal Kanak-Kanak', quote: 'Pengalaman paling bermakna ialah saya dapat mengenal kawan-kawan dan pensyarah yang banyak menolong dan membantu saya di kolej dari awal hingga akhir.' },
-  { name: 'Nurul Farisya Binti Ramlan', program: 'Alumni Pengurusan Pentadbiran', quote: 'Sepanjang 2 tahun di sini, banyak pengalaman antaranya belajar perkara baru. Kepada adik-adik semoga maju jaya dan teruskan semangat.' },
-]
-
-const FAQS = [
-  { q: 'Adakah ini program belajar dari awal?', a: 'Tidak. Program sepenuh masa adalah pengajian biasa selama 2–2.5 tahun. Program PPT pula adalah kaedah pengiktirafan pengalaman kerja sedia ada.' },
-  { q: 'Berapa yuran pengajian?', a: 'Yuran pendaftaran RM500. Yuran pengajian dibiayai sepenuhnya oleh PTPK. Yuran admin RM500 untuk 2 tahun. Penginapan asrama RM150 sebulan.' },
-  { q: 'Apakah syarat kemasukan?', a: 'Berumur 16–35 tahun, boleh membaca, mengira dan menulis, lepasan PT3/SPM/STPM/Tahfiz & Pondok.' },
-  { q: 'Berapa lama tempoh pengajian?', a: '2–2.5 tahun. Pelajar memperoleh SKM dan DKM. Struktur 70% praktikal, 30% teori.' },
-  { q: 'Boleh terus ambil DKM tanpa SKM?', a: 'Tidak. Pelajar wajib lulus SKM (Tahap 3) terlebih dahulu sebelum melanjutkan ke DKM (Tahap 4).' },
-]
+function HeroVisual() {
+  return (
+    <div className="relative mx-auto w-full max-w-md">
+      <div className="absolute -inset-4 rounded-[2rem] bg-brand-yellow rotate-3 sm:-inset-6" />
+      <div className="relative rounded-[1.5rem] bg-white p-6 pb-12 shadow-2xl ring-1 ring-slate-200 sm:p-8 sm:pb-14">
+        <div className="flex items-center justify-between">
+          <span className="rounded-full bg-brand-sky px-3 py-1 text-[11px] font-semibold text-brand-navy">Dikeluarkan oleh JPK</span>
+        </div>
+        <p className="mt-6 text-xs font-semibold uppercase tracking-[.2em] text-slate-400">Diploma Kemahiran Malaysia</p>
+        <p className="mt-1 text-2xl font-extrabold text-brand-navy">DKM Tahap 4</p>
+        <p className="text-sm font-medium text-slate-600">Pengajaran Prasekolah</p>
+        <div className="my-6 h-px bg-[repeating-linear-gradient(90deg,#cbd5e1_0_6px,transparent_6px_12px)]" />
+        <div className="grid grid-cols-2 gap-3 text-sm">
+          <div className="rounded-xl bg-slate-50 p-3"><p className="text-[11px] text-slate-500">Kod NOSS</p><p className="font-semibold text-brand-navy">P851-002-4:2025</p></div>
+          <div className="rounded-xl bg-slate-50 p-3"><p className="text-[11px] text-slate-500">Kaedah</p><p className="font-semibold text-brand-navy">PPT · Amali</p></div>
+        </div>
+      </div>
+      <div className="absolute -bottom-8 left-6 rounded-2xl bg-brand-red px-4 py-3 text-white shadow-xl sm:-left-10">
+        <p className="text-[11px] text-white/80 line-through">{PPT.priceWas}</p>
+        <p className="text-xl font-extrabold leading-none">{PPT.price}</p>
+      </div>
+      <div className="absolute -right-2 -top-5 flex items-center gap-2 rounded-2xl bg-white px-4 py-2.5 shadow-xl ring-1 ring-slate-200 sm:-right-8">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-green text-white"><WhatsAppGlyph className="h-4 w-4" /></span>
+        <span className="text-xs font-semibold text-brand-navy">Bimbingan<br />group WhatsApp</span>
+      </div>
+    </div>
+  )
+}
 
 export default function HomePage() {
-  const activePrograms = PROGRAMS.filter(p => p.status === 'active')
-  const comingPrograms = PROGRAMS.filter(p => p.status === 'coming_soon')
   return (
     <>
-      <section className="relative bg-ink-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-ink-900 via-ink-800 to-ink-900" />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <div className="gold-badge mb-6">Pendaftaran Dibuka 2026</div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Sedang Mencari <span className="text-gold-400">Diploma?</span><br />Jom Pilih TVET Lipis!</h1>
-            <p className="mt-6 text-lg md:text-xl text-ink-300 max-w-2xl leading-relaxed">TVET Lipis berperanan sebagai Pusat Pendidikan (Edu Hub) di Kuala Lipis yang menawarkan Program TVET Diploma Kemahiran Malaysia. Dibiayai PTPK. Diiktiraf JPK K16005.</p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/program" className="btn-gold text-base px-8 py-3.5">Lihat Program</Link>
-              <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-outline-gold text-base px-8 py-3.5">Tanya via WhatsApp</a>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-brand-navy">
+        <div className="absolute inset-0 opacity-[.1] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:32px_32px]" />
+        <div className="absolute -left-32 top-10 h-96 w-96 rounded-full bg-brand-red/30 blur-3xl" />
+        <div className="container-x relative grid items-center gap-14 pb-36 pt-14 md:pt-20 lg:grid-cols-[1.1fr_.9fr]">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white ring-1 ring-white/20">
+              <span className="h-2 w-2 rounded-full bg-brand-yellow" /> Memanggil semua cikgu tadika
+            </span>
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
+              Pengalaman anda <span className="text-brand-yellow">→</span> Diploma.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+              Dah bertahun mengajar di tadika tetapi belum ada diploma? Dapatkan <strong className="text-white">DKM Tahap 4 Pengajaran Prasekolah</strong> melalui PPT:
+              kemahiran anda dinilai secara amali oleh penilai JPK. Tidak perlu belajar semula 2 tahun.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href={CONTACT.waPPT} target="_blank" rel="noopener noreferrer" className="btn-cta px-7 py-3.5">
+                <WhatsAppGlyph /> Semak kelayakan · WhatsApp {CONTACT.whatsappDisplay}
+              </a>
+              <Link href="/ppt/" className="btn-ghost px-7 py-3.5">Lihat butiran program</Link>
+            </div>
+            <p className="mt-4 text-xs text-white/55">*Tertakluk semakan kelayakan JPK.</p>
+          </div>
+          <HeroVisual />
+        </div>
+      </section>
+
+      {/* QUICK ACCESS (bertindih dengan hero) */}
+      <section className="relative z-10 -mt-24">
+        <div className="container-x grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {QUICK.map((q) => {
+            const inner = (
+              <>
+                <span className={`flex h-12 w-12 items-center justify-center rounded-xl text-white ${q.accent} ${q.accent === 'bg-brand-yellow' ? '!text-brand-navyink' : ''}`}>
+                  <Icon name={q.icon} />
+                </span>
+                <h3 className="mt-4 text-sm font-bold text-brand-navy sm:text-base">{q.title}</h3>
+                <p className="mt-1 hidden text-sm text-slate-600 sm:block">{q.text}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-red">
+                  Teruskan <Icon name="arrow" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </>
+            )
+            const cls = 'group card block p-4 transition-transform hover:-translate-y-1 sm:p-6'
+            return q.external ? (
+              <a key={q.title} href={q.href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
+            ) : (
+              <Link key={q.title} href={q.href} className={cls}>{inner}</Link>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* APA ITU PPT */}
+      <section className="bg-grid py-20 md:py-24">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHead eyebrow="Apa itu PPT?" title="Kemahiran yang anda sudah ada, diiktiraf dengan Diploma" lead={PPT.whatIs} />
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/ppt/" className="btn-navy">Ketahui lebih lanjut <Icon name="arrow" className="h-4 w-4" /></Link>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="bg-gold-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {STATS.map(s => (<div key={s.label} className="text-center"><div className="text-3xl font-extrabold text-black">{s.value}</div><div className="text-sm font-medium text-ink-700 mt-1">{s.label}</div></div>))}
+          <div className="grid grid-cols-2 gap-4">
+            {STATS.map((s) => (
+              <div key={s.label} className="card p-6">
+                <p className="text-4xl font-extrabold text-brand-navy">{s.value}<span className="ml-1 text-base font-semibold text-brand-red">{s.unit}</span></p>
+                <p className="mt-2 text-sm text-slate-600">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="gold-badge mb-3">Program Sepenuh Masa</div>
-            <h2 className="section-title">Program Diploma & Sijil Ditawarkan</h2>
-            <p className="section-subtitle mx-auto text-center">Pilih bidang yang sesuai dengan minat dan kerjaya anda. Semua program diiktiraf JPK dan dibiayai PTPK.</p>
+
+      {/* KENAPA SEKARANG */}
+      <section className="bg-brand-navyink py-20 md:py-24">
+        <div className="container-x">
+          <SectionHead light eyebrow="Kenapa sekarang?" title="KPM tegaskan: guru prasekolah perlu sekurang-kurangnya diploma" />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {PPT.whyNow.map((w, i) => (
+              <div key={w.stat} className="rounded-2xl border border-white/10 bg-white/5 p-7">
+                <p className={`text-3xl font-extrabold ${['text-brand-yellow', 'text-white', 'text-[#FF6B8E]'][i]}`}>{w.stat}</p>
+                <p className="mt-3 text-sm leading-relaxed text-white/75">{w.text}</p>
+              </div>
+            ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {activePrograms.map(prog => (
-              <div key={prog.slug} className="card p-6 flex gap-5">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${prog.color} flex items-center justify-center text-2xl flex-shrink-0`}>{prog.icon}</div>
-                <div className="flex-1 min-w-0">
-                  <span className="gold-badge mb-2">{prog.level}</span>
-                  <h3 className="font-bold text-ink-900 text-lg leading-tight">{prog.name}</h3>
-                  <p className="text-xs text-ink-400 mt-1 mb-3">{prog.code}</p>
-                  <p className="text-sm text-ink-600 leading-relaxed line-clamp-2">{prog.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">{prog.careers.slice(0,3).map(c => (<span key={c} className="text-xs px-2 py-1 bg-ink-50 text-ink-600 rounded-md">{c}</span>))}</div>
+        </div>
+      </section>
+
+      {/* KELEBIHAN */}
+      <section className="py-20 md:py-24">
+        <div className="container-x">
+          <SectionHead center eyebrow="Kenapa pilih kami" title="Direka untuk guru yang sedang bekerja" />
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {PPT.benefits.map((b) => (
+              <div key={b.title} className="card flex gap-4 p-6">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-sky text-brand-navy"><Icon name={b.icon} /></span>
+                <div>
+                  <h3 className="font-bold text-brand-navy">{b.title}</h3>
+                  <p className="mt-1 text-sm text-slate-600">{b.text}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center"><Link href="/program" className="btn-black px-8">Lihat Semua Program & Kerjaya →</Link></div>
         </div>
       </section>
-      <section className="py-20 bg-ink-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="gold-badge mb-4">Program PPT</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Nak Guna Pengalaman Kerja<br />untuk Dapatkan Diploma?</h2>
-          <p className="text-ink-300 text-lg max-w-2xl mx-auto mb-8">PPT (Pengiktirafan Pencapaian Terdahulu) adalah penyelesaiannya — 6 bulan sahaja.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10">
-            {[{num:'6 Bulan',label:'Tempoh Program'},{num:'RM 4,000',label:'Yuran Keseluruhan'},{num:'3 Program',label:'Bidang Tersedia'}].map(s => (<div key={s.label} className="bg-ink-800 rounded-2xl p-6"><div className="text-2xl font-extrabold text-gold-400">{s.num}</div><div className="text-ink-300 text-sm mt-1">{s.label}</div></div>))}
+
+      {/* PROSES */}
+      <section className="bg-grid border-y border-slate-200 py-20 md:py-24">
+        <div className="container-x">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionHead eyebrow="Bagaimana program berjalan" title="6 langkah, 2 sesi bersemuka" />
+            <Link href="/ppt/#proses" className="btn-outline self-start md:self-auto">Lihat aliran penuh</Link>
           </div>
-          <Link href="/ppt" className="btn-gold px-10 py-4 text-base">Ketahui Lebih Lanjut Tentang PPT →</Link>
+          <div className="mt-12"><Steps steps={PPT.steps} /></div>
         </div>
       </section>
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12"><div className="gold-badge mb-3">Testimoni</div><h2 className="section-title">Apa Kata Alumni Kami</h2></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {TESTIMONIALS.map(t => (<div key={t.name} className="card p-6"><div className="text-gold-400 text-3xl mb-4">“</div><p className="text-ink-600 leading-relaxed italic mb-6">{t.quote}</p><div><div className="font-semibold text-ink-900">{t.name}</div><div className="text-sm text-gold-600">{t.program}</div></div></div>))}
+
+      {/* YURAN */}
+      <section className="py-20 md:py-24">
+        <div className="container-x">
+          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-brand-navy to-brand-navydark shadow-card lg:grid lg:grid-cols-[1.2fr_1fr]">
+            <div className="p-8 md:p-12">
+              <div className="eyebrow !text-brand-yellow before:!bg-brand-yellow">Yuran program</div>
+              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">PPT Diploma Pra-Sekolah</h2>
+              <p className="mt-2 text-white/70">{PPT.name}</p>
+              <ul className="mt-6 grid gap-2 text-sm text-white/85 sm:grid-cols-2">
+                {['2 sesi bersemuka di Kuala Lipis', 'Bimbingan group WhatsApp', 'Penilai PPL dilantik JPK', 'Sijil DKM Tahap 4 oleh JPK'].map((t) => (
+                  <li key={t} className="flex items-center gap-2"><Icon name="check" className="h-4 w-4 text-brand-yellow" />{t}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-col justify-center bg-white/5 p-8 md:p-12">
+              <p className="text-sm text-white/60">Harga biasa <span className="line-through">{PPT.priceWas}</span></p>
+              <p className="mt-1 text-5xl font-extrabold text-white md:text-6xl">{PPT.price}</p>
+              <p className="mt-2 text-sm text-white/60">Batch bermula apabila cukup 4 calon.</p>
+              <a href={CONTACT.waPPT} target="_blank" rel="noopener noreferrer" className="btn-cta mt-6 w-full sm:w-auto">
+                <WhatsAppGlyph /> Semak kelayakan
+              </a>
+              <p className="mt-3 text-xs text-white/50">*Tertakluk semakan kelayakan JPK. PTPK tidak menanggung PPT.</p>
+            </div>
           </div>
         </div>
       </section>
-      <section className="py-20 bg-ink-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12"><div className="gold-badge mb-3">FAQ</div><h2 className="section-title">Soalan Lazim</h2></div>
-          <div className="space-y-4">
-            {FAQS.map(faq => (<details key={faq.q} className="card p-5 group"><summary className="font-semibold text-ink-900 cursor-pointer list-none flex justify-between items-center">{faq.q}<span className="text-gold-500 text-xl">+</span></summary><p className="mt-3 text-ink-600 leading-relaxed">{faq.a}</p></details>))}
+
+      {/* SEPENUH MASA */}
+      <section className="bg-slate-50 py-20 md:py-24">
+        <div className="container-x">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionHead eyebrow="Lepasan SPM / belia 16–30 tahun" title="Program diploma sepenuh masa" lead="2 tahun, 70% amali. Tidak perlu SPM, tiada temu duga. Dibiayai PTPK dengan elaun RM400 sebulan." />
+            <Link href="/program/" className="btn-outline self-start md:self-auto">Semua program</Link>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {PROGRAMS.map((p) => (
+              <Link key={p.slug} href={`/program/#${p.slug}`} className="card group overflow-hidden transition-transform hover:-translate-y-1">
+                <div className={`flex h-28 items-end justify-between bg-gradient-to-br p-5 text-white ${p.color}`}>
+                  <Icon name={p.icon} className="h-10 w-10" />
+                  {p.status === 'soon' && <span className="rounded-full bg-white/25 px-2.5 py-1 text-[11px] font-semibold">Akan datang</span>}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold leading-snug text-brand-navy">{p.name}</h3>
+                  <p className="mt-2 text-xs text-slate-500">Pengambilan</p>
+                  <p className="text-sm font-medium text-slate-700">{p.intake}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
-      <section className="py-16 bg-gradient-to-r from-gold-600 to-gold-400">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-extrabold text-black mb-3">#TVETlipisPilihanAnda</h2>
-          <p className="text-ink-800 text-lg mb-8">Pendaftaran 2026 dibuka sekarang. Jangan tunggu lagi — tempat adalah terhad.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-black px-10 py-4 text-base">WhatsApp Sekarang</a>
-            <Link href="/program" className="inline-flex items-center justify-center px-10 py-4 rounded-lg font-semibold border-2 border-black text-black hover:bg-black hover:text-gold-400 transition-all duration-200 text-base">Lihat Program</Link>
+
+      {/* TENTANG + FAQ */}
+      <section className="py-20 md:py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[.9fr_1.1fr]">
+          <div>
+            <SectionHead eyebrow="Tentang kami" title="Hab pendidikan kemahiran di Kuala Lipis" lead={ABOUT.intro} />
+            <div className="mt-8 space-y-4">
+              {ABOUT.points.map((p) => (
+                <div key={p.title} className="flex gap-4">
+                  <span className="mt-1 h-10 w-1 shrink-0 rounded-full bg-brand-red" />
+                  <div>
+                    <p className="font-semibold text-brand-navy">{p.title}</p>
+                    <p className="text-sm text-slate-600">{p.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="eyebrow">Soalan lazim</div>
+            <h2 className="h2 mb-8">Soalan cikgu tentang PPT</h2>
+            <Faq items={PPT.faqs} />
           </div>
         </div>
       </section>

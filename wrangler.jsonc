@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers (static assets). `npm run build` produces ./out, wrangler uploads it.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tvetlipiswebsite",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

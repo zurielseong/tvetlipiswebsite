@@ -1,45 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0A0A0A"/>
-  <!-- Gold accent bar top -->
-  <rect width="1200" height="6" fill="#D4A017"/>
-  <!-- Subtle grid pattern -->
-  <defs>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#1a1a1a" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
-  <!-- Gold accent circle -->
-  <circle cx="900" cy="315" r="280" fill="#D4A017" opacity="0.06"/>
-  <circle cx="900" cy="315" r="200" fill="#D4A017" opacity="0.06"/>
-  <!-- Logo area -->
-  <rect x="80" y="80" width="5" height="100" fill="#D4A017"/>
-  <!-- Main headline -->
-  <text x="108" y="148" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#FFFFFF">TVET Lipis</text>
-  <!-- Tagline -->
-  <text x="108" y="210" font-family="Arial, sans-serif" font-size="24" fill="#D4A017">Akademi Pembangunan Kemahiran USIM</text>
-  <!-- Divider -->
-  <rect x="80" y="240" width="500" height="2" fill="#D4A017" opacity="0.4"/>
-  <!-- Description -->
-  <text x="80" y="290" font-family="Arial, sans-serif" font-size="22" fill="#CCCCCC">Program Diploma &amp; Sijil Kemahiran Malaysia</text>
-  <text x="80" y="325" font-family="Arial, sans-serif" font-size="22" fill="#CCCCCC">di Kuala Lipis, Pahang</text>
-  <!-- Features -->
-  <text x="80" y="390" font-family="Arial, sans-serif" font-size="18" fill="#D4A017">&#x2713;  Dibiayai PTPK</text>
-  <text x="280" y="390" font-family="Arial, sans-serif" font-size="18" fill="#D4A017">&#x2713;  JPK K16005</text>
-  <text x="480" y="390" font-family="Arial, sans-serif" font-size="18" fill="#D4A017">&#x2713;  70% Praktikal</text>
-  <!-- Programs list -->
-  <text x="80" y="450" font-family="Arial, sans-serif" font-size="16" fill="#888888">Pendidikan Awal Kanak-Kanak  ·  Multimedia  ·  Elektrik  ·  Pra-Sekolah</text>
-  <!-- CTA -->
-  <rect x="80" y="490" width="260" height="56" rx="8" fill="#D4A017"/>
-  <text x="210" y="524" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0A0A0A" text-anchor="middle">Daftar Sekarang</text>
-  <!-- URL -->
-  <text x="80" y="590" font-family="Arial, sans-serif" font-size="16" fill="#555555">tvetlipis.my</text>
-  <!-- Right side decorative icons -->
-  <text x="820" y="200" font-size="80" fill="#D4A017" opacity="0.3">&#x1F476;</text>
-  <text x="980" y="200" font-size="80" fill="#D4A017" opacity="0.3">&#x1F3A8;</text>
-  <text x="820" y="360" font-size="80" fill="#D4A017" opacity="0.3">&#x26A1;</text>
-  <text x="980" y="360" font-size="80" fill="#D4A017" opacity="0.3">&#x1F3EB;</text>
-  <!-- Bottom gold bar -->
-  <rect y="624" width="1200" height="6" fill="#D4A017"/>
+  <defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".08"/></pattern></defs>
+  <rect width="1200" height="630" fill="#063E87"/><rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="1080" cy="110" r="220" fill="#D11F48" opacity=".35"/>
+  <circle cx="130" cy="140" r="56" fill="#000"/><text x="130" y="135" fill="#fff" font-family="Poppins,Arial" font-weight="800" font-size="20" text-anchor="middle">TVET</text><text x="130" y="158" fill="#fff" font-family="Poppins,Arial" font-weight="800" font-size="16" text-anchor="middle">LIPIS</text>
+  <text x="80" y="330" fill="#fff" font-family="Poppins,Arial" font-weight="800" font-size="84">Pengalaman anda</text>
+  <text x="80" y="430" fill="#FFC400" font-family="Poppins,Arial" font-weight="800" font-size="84">→ Diploma.</text>
+  <text x="80" y="510" fill="#ffffff" fill-opacity=".8" font-family="Poppins,Arial" font-weight="500" font-size="32">PPT Diploma Pra-Sekolah · DKM Tahap 4 · WhatsApp 010-808 6630</text>
+  <rect y="618" width="400" height="12" fill="#063E87"/><rect x="400" y="618" width="400" height="12" fill="#D11F48"/><rect x="800" y="618" width="400" height="12" fill="#FFC400"/>
 </svg>
