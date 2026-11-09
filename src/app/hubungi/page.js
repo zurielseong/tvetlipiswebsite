@@ -1,41 +1,61 @@
-import { CONTACT } from '@/lib/programs'
+import { CONTACT } from '@/lib/site'
+import Icon, { WhatsAppGlyph } from '@/components/Icon'
+import { PageHero } from '@/components/ui'
 
 export const metadata = {
-  title: 'Hubungi Kami — TVET Lipis',
-  description: 'Hubungi TVET Lipis. Alamat: Level 4, Lipis Centrepoint, Kuala Lipis. WhatsApp: 016-446 6630.',
-  alternates: { canonical: 'https://tvetlipis.my/hubungi' },
+  title: 'Hubungi Kami',
+  description: `Hubungi TVET Lipis melalui WhatsApp ${CONTACT.whatsappDisplay}. ${CONTACT.address}.`,
+  alternates: { canonical: 'https://tvetlipis.my/hubungi/' },
 }
 
 export default function HubungiPage() {
+  const cards = [
+    { icon: 'diploma', title: 'PPT Diploma Pra-Sekolah', text: 'Saya berminat Diploma Pra-Sekolah (PPT)', href: CONTACT.waPPT },
+    { icon: 'school', title: 'Program sepenuh masa', text: 'Saya berminat program diploma sepenuh masa', href: CONTACT.waFullTime },
+  ]
   return (
     <>
-      <section className="bg-ink-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="gold-badge mb-4">Hubungi Kami</div>
-          <h1 className="text-4xl font-extrabold text-white">Kami Sedia Membantu</h1>
-          <p className="mt-3 text-ink-300 text-lg max-w-xl">Ada soalan tentang program, pendaftaran, atau PPT? Jangan teragak-agak untuk menghubungi kami.</p>
-        </div>
-      </section>
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="card p-6"><div className="text-4xl mb-4">📍</div><h2 className="font-bold text-ink-900 text-lg mb-3">Alamat</h2><p className="text-ink-600">Level 4, Lipis Centrepoint</p><p className="text-ink-600">Jalan Pekeliling, 27200 Kuala Lipis</p><p className="text-ink-600">Pahang, Malaysia</p><a href={CONTACT.maps} target="_blank" rel="noopener noreferrer" className="mt-4 btn-gold text-sm px-5 py-2 inline-flex">Buka Google Maps</a></div>
-            <div className="card p-6"><div className="text-4xl mb-4">📞</div><h2 className="font-bold text-ink-900 text-lg mb-3">Telefon / WhatsApp</h2><p className="text-ink-600">{CONTACT.phone1}</p><p className="text-ink-600">{CONTACT.phone2} (WhatsApp)</p><a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="mt-4 btn-gold text-sm px-5 py-2 inline-flex">Hubungi via WhatsApp</a></div>
-            <div className="card p-6"><div className="text-4xl mb-4">✉️</div><h2 className="font-bold text-ink-900 text-lg mb-3">E-mel</h2><p className="text-ink-600">{CONTACT.email}</p><a href={`mailto:${CONTACT.email}`} className="mt-4 btn-gold text-sm px-5 py-2 inline-flex">Hantar E-mel</a></div>
-            <div className="card p-6"><div className="text-4xl mb-4">🕐</div><h2 className="font-bold text-ink-900 text-lg mb-3">Waktu Pejabat</h2><p className="text-ink-600">Isnin hingga Sabtu</p><p className="text-ink-600">9:00 pagi — 6:00 petang</p><p className="text-ink-600">Ahad: Tutup</p></div>
+      <PageHero crumb="Hubungi" title="Hubungi kami" lead="Cara paling cepat: WhatsApp. Pilih program dan mesej anda akan diisi secara automatik." />
+      <section className="bg-grid py-16 md:py-20">
+        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.1fr]">
+          <div className="space-y-5">
+            {cards.map((c) => (
+              <a key={c.title} href={c.href} target="_blank" rel="noopener noreferrer" className="card group flex items-center gap-5 p-6 transition-transform hover:-translate-y-1">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-green text-white"><WhatsAppGlyph className="h-7 w-7" /></span>
+                <div className="flex-1">
+                  <p className="font-bold text-brand-navy">{c.title}</p>
+                  <p className="text-sm text-slate-500">“{c.text}”</p>
+                </div>
+                <Icon name="arrow" className="h-5 w-5 text-brand-red transition-transform group-hover:translate-x-1" />
+              </a>
+            ))}
+            <div className="card divide-y divide-slate-200">
+              {[
+                ['phone', 'WhatsApp', CONTACT.whatsappDisplay],
+                ['pin', 'Alamat', CONTACT.address],
+                ['train', 'Pengangkutan', CONTACT.addressNote],
+              ].map(([i, k, v]) => (
+                <div key={k} className="flex gap-4 p-5">
+                  <Icon name={i} className="mt-0.5 h-5 w-5 shrink-0 text-brand-red" />
+                  <div><p className="text-xs text-slate-500">{k}</p><p className="font-medium text-slate-800">{v}</p></div>
+                </div>
+              ))}
+              <div className="flex flex-wrap gap-2 p-5">
+                <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2 text-sm">Facebook “TVET Lipis”</a>
+                <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2 text-sm">Instagram @tvet_lipis</a>
+                <a href={CONTACT.tiktok} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2 text-sm">TikTok @tvet_lipis</a>
+              </div>
+            </div>
           </div>
-          <div className="mt-10 bg-ink-900 rounded-3xl p-8 text-center">
-            <div className="text-5xl mb-4">💬</div>
-            <h2 className="text-2xl font-bold text-white mb-3">Cara Paling Cepat: WhatsApp</h2>
-            <p className="text-ink-300 max-w-md mx-auto mb-6">Team kami membalas dalam masa 1 jam semasa waktu pejabat.</p>
-            <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-gold px-10 py-4 text-base">WhatsApp Sekarang — 016 446 6630</a>
+          <div className="card overflow-hidden">
+            <iframe
+              title="Peta lokasi TVET Lipis"
+              src="https://www.google.com/maps?q=Lipis+Centrepoint,+Kuala+Lipis,+Pahang&output=embed"
+              className="h-[420px] w-full lg:h-full lg:min-h-[520px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
-        </div>
-      </section>
-      <section className="py-12 bg-ink-50 border-t border-ink-100">
-        <div className="max-w-xl mx-auto px-4 text-center">
-          <p className="text-ink-500 mb-4">Ikuti kami di TikTok untuk konten terkini</p>
-          <a href={CONTACT.tiktok} target="_blank" rel="noopener noreferrer" className="btn-black px-8">@tvet_lipis di TikTok</a>
         </div>
       </section>
     </>

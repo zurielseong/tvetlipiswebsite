@@ -1,108 +1,93 @@
-import Link from 'next/link'
-import { PROGRAMS, CONTACT } from '@/lib/programs'
+import { CONTACT, FULLTIME, PROGRAMS } from '@/lib/site'
+import Icon, { WhatsAppGlyph } from '@/components/Icon'
+import { PageHero, SectionHead, KeyTable, CheckList } from '@/components/ui'
 
 export const metadata = {
-  title: 'Program Diploma & Sijil Kemahiran Malaysia',
+  title: 'Program Diploma Sepenuh Masa (Lepasan SPM)',
   description:
-    'Senarai lengkap program DKM dan SKM di TVET Lipis Kuala Lipis. Pendidikan Awal Kanak-Kanak, Multimedia, Elektrik, Pra-Sekolah, Kulinari, Cyber Security. Dibiayai PTPK.',
-  alternates: { canonical: 'https://tvetlipis.my/program' },
+    'Program DKM sepenuh masa 2 tahun di TVET Lipis untuk belia 16–30 tahun. Tidak perlu SPM, tiada temu duga. Dibiayai PTPK, elaun RM400 sebulan. PAKK, Pra-Sekolah, Multimedia Kreatif.',
+  alternates: { canonical: 'https://tvetlipis.my/program/' },
 }
 
 export default function ProgramPage() {
-  const active = PROGRAMS.filter(p => p.status === 'active')
-  const coming = PROGRAMS.filter(p => p.status === 'coming_soon')
-
   return (
     <>
-      <section className="bg-ink-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="gold-badge mb-4">Program Sepenuh Masa</div>
-          <h1 className="text-4xl font-extrabold text-white">Program Diploma & Sijil</h1>
-          <p className="mt-3 text-ink-300 text-lg max-w-2xl">
-            Semua program diiktiraf JPK K16005, dibiayai PTPK, dengan struktur 70% praktikal untuk memastikan kebolehpasaran graduan.
-          </p>
-        </div>
-      </section>
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
-            {active.map(prog => (
-              <div key={prog.slug} className="card overflow-hidden">
-                <div className={`h-2 bg-gradient-to-r ${prog.color}`} />
-                <div className="p-6 sm:p-8">
-                  <div className="flex flex-col sm:flex-row gap-6">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${prog.color} flex items-center justify-center text-3xl flex-shrink-0`}>
-                      {prog.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        <span className="gold-badge">{prog.level}</span>
-                        <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium">Aktif</span>
-                      </div>
-                      <h2 className="text-2xl font-bold text-ink-900">
-                        <Link href={`/program/${prog.slug}`} className="hover:text-gold-500 transition-colors">
-                          {prog.name}
-                        </Link>
-                      </h2>
-                      <p className="text-xs text-ink-400 mt-1 mb-3 font-mono">{prog.code}</p>
-                      <p className="text-ink-600 leading-relaxed">{prog.description}</p>
-                      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                          <h3 className="font-semibold text-ink-900 mb-3">Kelebihan Kursus</h3>
-                          <ul className="space-y-2">
-                            {prog.highlights.map(h => (
-                              <li key={h} className="flex gap-2 text-sm text-ink-600">
-                                <span className="text-gold-500 mt-0.5">✓</span>
-                                {h}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-ink-900 mb-3">Prospek Pekerjaan</h3>
-                          <div className="flex flex-wrap gap-2">
-                            {prog.careers.map(c => (
-                              <span key={c} className="text-xs px-3 py-1.5 bg-ink-50 text-ink-700 rounded-lg border border-ink-100">{c}</span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="mt-6 flex flex-wrap gap-3">
-                        <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm px-6 py-2.5">Daftar Program Ini</a>
-                        <Link href={`/program/${prog.slug}`} className="btn-outline-gold text-sm px-6 py-2.5">Maklumat Lanjut</Link>
-                        {prog.brochure && (
-                          <a href={prog.brochure} target="_blank" rel="noopener noreferrer" className="text-sm px-6 py-2.5 text-ink-600 hover:text-gold-500 transition-colors underline underline-offset-2">Muat Turun Brosur</a>
-                        )}
-                      </div>
+      <PageHero
+        crumb="Program Sepenuh Masa"
+        title={<>Program diploma <span className="text-brand-yellow">sepenuh masa</span></>}
+        lead="Untuk lepasan sekolah / belia umur 16–30 tahun, warganegara Malaysia. Tidak perlu SPM. Tiada temu duga. Dibiayai PTPK."
+      >
+        <a href={CONTACT.waFullTime} target="_blank" rel="noopener noreferrer" className="btn-cta px-7 py-3.5">
+          <WhatsAppGlyph /> WhatsApp {CONTACT.whatsappDisplay}
+        </a>
+        <a href={CONTACT.upTvet} target="_blank" rel="noopener noreferrer" className="btn-ghost px-7 py-3.5">Mohon melalui UP_TVET</a>
+      </PageHero>
+
+      {/* Programs */}
+      <section className="bg-grid py-16 md:py-20">
+        <div className="container-x">
+          <SectionHead eyebrow="Pilih bidang anda" title="Program ditawarkan" />
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {PROGRAMS.map((p) => (
+              <article key={p.slug} id={p.slug} className="card scroll-mt-24 overflow-hidden">
+                <div className={`flex items-center gap-4 bg-gradient-to-br p-6 text-white ${p.color}`}>
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20"><Icon name={p.icon} className="h-8 w-8" /></span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Diploma Kemahiran Malaysia</p>
+                    <h3 className="text-xl font-bold leading-snug">{p.name}</h3>
+                  </div>
+                  {p.status === 'soon' && <span className="ml-auto rounded-full bg-white/25 px-3 py-1 text-xs font-semibold">Akan datang</span>}
+                </div>
+                <div className="grid gap-4 p-6 sm:grid-cols-2">
+                  <div>
+                    <p className="text-xs text-slate-500">Yuran</p>
+                    <p className="font-bold text-brand-navy">{p.fee}</p>
+                    <p className="text-xs text-slate-500">{p.feeNote}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-500">Pengambilan</p>
+                    <p className="font-semibold text-slate-800">{p.intake}</p>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <p className="text-xs text-slate-500">Kerjaya</p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {p.careers.map((c) => <span key={c} className="rounded-full bg-brand-sky px-3 py-1 text-xs font-medium text-brand-navy">{c}</span>)}
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
-          {coming.length > 0 && (
-            <div className="mt-12">
-              <h2 className="text-xl font-bold text-ink-500 mb-6 uppercase tracking-wider text-sm">Program Akan Datang</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {coming.map(prog => (
-                  <Link key={prog.slug} href={`/program/${prog.slug}`} className="card p-6 opacity-70 hover:opacity-100 transition-opacity block">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${prog.color} flex items-center justify-center text-2xl mb-4`}>{prog.icon}</div>
-                    <span className="text-xs px-2 py-0.5 bg-ink-100 text-ink-500 rounded-full font-medium">Akan Datang</span>
-                    <h3 className="text-lg font-bold text-ink-700 mt-2">{prog.name}</h3>
-                    <p className="text-sm text-ink-500 mt-1">{prog.level}</p>
-                    <p className="text-sm text-ink-500 mt-3 leading-relaxed">{prog.description}</p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
-      <section className="py-14 bg-ink-50 border-t border-ink-100">
-        <div className="max-w-xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-ink-900 mb-3">Belum Pasti Program Yang Sesuai?</h2>
-          <p className="text-ink-500 mb-6">Hubungi kaunselor kami untuk perbincangan percuma. Kami bantu anda pilih bidang yang sesuai dengan minat dan kerjaya.</p>
-          <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-gold px-10 py-3.5">Bincang Dengan Kaunselor</a>
+
+      {/* Ringkasan & kos */}
+      <section className="py-16 md:py-20">
+        <div className="container-x grid gap-10 lg:grid-cols-2">
+          <div>
+            <h2 className="mb-4 text-xl font-bold text-brand-navy">Ringkasan program</h2>
+            <KeyTable rows={FULLTIME.summary} />
+          </div>
+          <div>
+            <h2 className="mb-4 text-xl font-bold text-brand-navy">Kos sendiri</h2>
+            <KeyTable rows={FULLTIME.costs} />
+            <h2 className="mb-4 mt-10 text-xl font-bold text-brand-navy">Bantuan lain</h2>
+            <div className="card p-6"><CheckList items={FULLTIME.aid} /></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Asrama */}
+      <section className="bg-brand-navyink py-16 md:py-20">
+        <div className="container-x grid items-center gap-10 lg:grid-cols-2">
+          <SectionHead light eyebrow="Asrama" title="Tinggal dalam bangunan yang sama dengan kolej" lead="RM150 sebulan + utiliti (wajib kecuali penduduk Lipis). Percuma untuk pelajar Multimedia." />
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {FULLTIME.hostel.map((h) => (
+              <li key={h} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-white/85">
+                <Icon name="shield" className="h-5 w-5 shrink-0 text-brand-yellow" />{h}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

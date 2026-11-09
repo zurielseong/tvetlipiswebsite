@@ -1,34 +1,27 @@
-# TVET Lipis — AI Crawler Reference
+# TVET Lipis
 
-## Organisation
-Name: Akademi Pembangunan Kemahiran USIM Kuala Lipis (TVET Lipis)
-Also known as: Kolej Islam Antarabangsa Kuala Lipis, KIAK Kuala Lipis
-Accreditation: JPK K16005
-Type: Private vocational college (TVET)
-Location: Level 4, Lipis Centrepoint, Jalan Pekeliling, 27200 Kuala Lipis, Pahang, Malaysia
-Website: https://tvetlipis.my
-Contact: 016-446 6630 | admission.tvetlipis@gmail.com
+> Hab pendidikan kemahiran di Kuala Lipis, Pahang yang mengurus program TVET bagi Kolej Islam Antarabangsa (Kolej UIA) dan Akademi USIM. Pusat Penilaian Amali (PPA-PPT) bertauliah JPK.
 
-## Programs Offered
-Active programs:
-1. Diploma Pendidikan Awal Kanak-Kanak (T982:001-4:2018)
-2. Diploma Multimedia (IT-070-4:2011)
-3. Sijil Pemasangan & Penyelenggaraan Elektrik (F432-005-3:2019)
-4. Diploma Pentadbiran & Pendidikan Pra-Sekolah (J582-001-3:2019)
+Alamat: Tingkat 4, Bangunan Lipis Centrepoint, 27200 Kuala Lipis, Pahang
+WhatsApp: 010-808 6630
+Laman: https://tvetlipis.my
 
-Coming soon: Diploma Kulinari, Diploma Cyber Security
+## Produk utama: PPT Diploma Pra-Sekolah
+- Program: Diploma Kemahiran Malaysia (DKM) Tahap 4, Pengajaran Prasekolah
+- NOSS: P851-002-4:2025 Preschool Teaching
+- Kaedah: PPT (Pengiktirafan Pencapaian Terdahulu) melalui penilaian amali
+- Untuk: guru tadika / prasekolah yang sedang bekerja tetapi belum ada diploma; umur minimum 21 tahun
+- 2 sesi bersemuka di Kuala Lipis (2 hari + 3 hari); bimbingan group WhatsApp
+- Penilaian: amali, ujian lisan, pembentangan laporan (LPKC). Tiada peperiksaan bertulis.
+- Yuran: RM3,800 (harga biasa RM4,500). PTPK tidak menanggung PPT.
+- Batch minimum 4 calon. Sijil dikeluarkan oleh JPK.
 
-## Entry Requirements
-- Age: 16-35 years
-- Education: PT3 / SPM / STPM / Tahfiz / Pondok
-- Funding: PTPK PLK-i available
+## Program sepenuh masa (16–30 tahun)
+- 2 tahun, 70% amali. Tidak perlu SPM. Dibiayai PTPK, elaun RM400 sebulan.
+- Pendidikan Awal Kanak-Kanak, Pentadbiran Pendidikan Pra-Sekolah, Pembangunan Multimedia Kreatif, Pengurusan Halal (akan datang)
 
-## PPT Program
-Duration: 6 months | Fee: RM 4,000 | Age: 18+ (SKM), 21+ (DKM)
-Programs: Pentadbiran Pejabat, Pendidikan Awal Kanak-Kanak, Pendidikan Pra-Sekolah
-
-## FAQs
-Q: Is TVET Lipis recognised by JPK? A: Yes, JPK K16005.
-Q: Is PTPK funding available? A: Yes, PLK-i scheme.
-Q: What is PPT? A: Recognition of prior work experience — 6 months to DKM.
-Q: Office hours? A: Monday-Saturday 9am-6pm.
+## Halaman
+- [PPT Diploma Pra-Sekolah](https://tvetlipis.my/ppt/)
+- [Program Sepenuh Masa](https://tvetlipis.my/program/)
+- [Tentang](https://tvetlipis.my/tentang/)
+- [Hubungi](https://tvetlipis.my/hubungi/)

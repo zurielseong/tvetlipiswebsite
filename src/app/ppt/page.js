@@ -1,67 +1,136 @@
-import { PPT_PROGRAMS, CONTACT } from '@/lib/programs'
+import { CONTACT, PPT } from '@/lib/site'
+import Icon, { WhatsAppGlyph } from '@/components/Icon'
+import { PageHero, SectionHead, Faq, KeyTable, CheckList, Steps } from '@/components/ui'
 
 export const metadata = {
-  title: 'PPT — Pengiktirafan Pencapaian Terdahulu',
-  description: 'Program PPT TVET Lipis: Dapatkan Diploma Kemahiran Malaysia melalui pengalaman kerja dalam 6 bulan. Yuran RM4,000.',
-  alternates: { canonical: 'https://tvetlipis.my/ppt' },
+  title: 'PPT Diploma Pra-Sekolah (DKM Tahap 4 Pengajaran Prasekolah)',
+  description:
+    'DKM Tahap 4 Pengajaran Prasekolah melalui PPT (NOSS P851-002-4:2025). Untuk guru tadika yang bekerja: 5 hari bersemuka, bimbingan WhatsApp, penilaian amali oleh PPL JPK. RM3,800.',
+  alternates: { canonical: 'https://tvetlipis.my/ppt/' },
 }
-
-const STEPS = [
-  { step:1, icon:'📋', title:'Semak Kelayakan & Daftar', desc:'Pemohon menyemak kelayakan dan mendaftar PPT melalui TVET Lipis.' },
-  { step:2, icon:'💻', title:'Sesi Online & Kelas Express', desc:'Pemohon mengikuti sesi taklimat dan bimbingan secara dalam talian.' },
-  { step:3, icon:'🏄', title:'Latihan Mock-Up', desc:'Calon menghadiri ke kolej untuk menjalani latihan mock-up bagi penilaian amali.' },
-  { step:4, icon:'✅', title:'Penilaian Amali Secara Fizikal', desc:'Pemohon dinilai secara praktikal oleh Pegawai Pengesahan Luaran JPK.' },
-]
 
 export default function PPTPage() {
   return (
     <>
-      <section className="bg-ink-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="gold-badge mb-4">Program PPT</div>
-          <h1 className="text-4xl font-extrabold text-white leading-tight">Pengiktirafan Pencapaian<br /><span className="text-gold-400">Terdahulu (PPT)</span></h1>
-          <p className="mt-4 text-ink-300 text-lg max-w-2xl">Dapatkan DKM melalui pengalaman kerja anda dalam <strong className="text-white">6 bulan sahaja</strong>.</p>
-        </div>
-      </section>
-      <section className="py-16 bg-gold-50 border-b border-gold-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-ink-900 mb-4">Apa Itu PPT?</h2>
-          <p className="text-ink-600 leading-relaxed text-lg">PPT (Pengiktirafan Pencapaian Terdahulu) ialah kaedah untuk mengiktiraf individu yang memiliki pengalaman dan pencapaian terdahulu berdasarkan keperluan <strong>NOSS / SKPK</strong>.</p>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {[{num:'6 Bulan',sub:'3 bulan SKM + 3 bulan DKM'},{num:'RM 4,000',sub:'RM500 deposit + 3 ansuran'},{num:'100% Online',sub:'Kelas express boleh ulang tonton'}].map(s => (<div key={s.num} className="bg-white rounded-2xl p-5 border border-gold-200"><div className="text-2xl font-extrabold text-gold-600">{s.num}</div><div className="text-sm text-ink-500 mt-1">{s.sub}</div></div>))}
-          </div>
-        </div>
-      </section>
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-ink-900 mb-2 text-center">Bidang Yang Boleh Diiktiraf</h2>
-          <p className="text-ink-500 text-center mb-8">Semak kelayakan anda untuk setiap program.</p>
-          <div className="space-y-4">
-            {PPT_PROGRAMS.map(prog => (<div key={prog.name} className="card p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"><div className="flex items-center gap-4"><div className="w-10 h-10 rounded-xl bg-gold-100 flex items-center justify-center text-gold-600 text-lg">🎓</div><div><div className="font-semibold text-ink-900">{prog.name}</div><div className="text-sm text-ink-500">Diploma Kemahiran Malaysia · 6 Bulan</div></div></div><a href={prog.form} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm px-6 py-2.5 flex-shrink-0">Semak Kelayakan</a></div>))}
-          </div>
-        </div>
-      </section>
-      <section className="py-16 bg-ink-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">Proses Permohonan PPT</h2>
-          <p className="text-ink-400 text-center mb-10">4 langkah mudah dari pendaftaran hingga sijil.</p>
-          <div className="space-y-4">
-            {STEPS.map((step,i) => (<div key={step.step} className="flex gap-5"><div className="flex flex-col items-center"><div className="w-12 h-12 rounded-2xl bg-gold-500 flex items-center justify-center text-black font-extrabold text-lg flex-shrink-0">{step.step}</div>{i<STEPS.length-1 && <div className="w-0.5 h-full mt-2 bg-ink-700" />}</div><div className="pb-6"><div className="text-xl mb-1">{step.icon}</div><div className="font-semibold text-white">{step.title}</div><div className="text-ink-400 text-sm mt-1 leading-relaxed">{step.desc}</div></div></div>))}
-          </div>
-        </div>
-      </section>
-      <section className="py-16 bg-white">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-ink-900 mb-8 text-center">Yuran Pengajian PPT</h2>
-          <div className="card overflow-hidden">
-            <div className="bg-gold-500 p-4 text-center"><div className="text-3xl font-extrabold text-black">RM 4,000</div><div className="text-ink-700 font-medium">Jumlah Keseluruhan (SKM + DKM)</div></div>
-            <div className="p-6 space-y-3">
-              <div className="flex justify-between text-sm py-2 border-b border-ink-100"><span className="text-ink-600">Deposit Awal</span><span className="font-semibold text-ink-900">RM 500</span></div>
-              <div className="flex justify-between text-sm py-2 border-b border-ink-100"><span className="text-ink-600">Ansuran</span><span className="font-semibold text-ink-900">3 kali bayaran</span></div>
-              <div className="flex justify-between text-sm py-2"><span className="text-ink-600">Pengeluaran KWSP</span><span className="font-semibold text-blue-600">Boleh digunakan</span></div>
+      <PageHero
+        crumb="PPT Diploma Pra-Sekolah"
+        title={<>PPT Diploma Pra-Sekolah <span className="text-brand-yellow">DKM Tahap 4</span></>}
+        lead="Untuk guru tadika / prasekolah yang sedang bekerja tetapi belum ada diploma. Kemahiran anda dinilai secara amali oleh Pegawai Penilai (PPL) yang dilantik JPK."
+      >
+        <a href={CONTACT.waPPT} target="_blank" rel="noopener noreferrer" className="btn-cta px-7 py-3.5">
+          <WhatsAppGlyph /> Semak kelayakan · WhatsApp {CONTACT.whatsappDisplay}
+        </a>
+        <a href="#yuran" className="btn-ghost px-7 py-3.5">Yuran {PPT.price}</a>
+      </PageHero>
+
+      {/* Ringkasan */}
+      <section className="bg-grid py-16 md:py-20">
+        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div>
+            <SectionHead eyebrow="Apa itu PPT?" title="Pengiktirafan Pencapaian Terdahulu" lead={PPT.whatIs} />
+            <div className="mt-6 rounded-2xl border-l-4 border-brand-yellow bg-white p-5 shadow-card">
+              <p className="text-sm font-semibold text-brand-navy">Bentuk penilaian</p>
+              <p className="mt-1 text-sm text-slate-600">{PPT.assessment}</p>
             </div>
-            <div className="px-6 pb-6"><a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-gold w-full justify-center">Daftar PPT Sekarang</a></div>
           </div>
+          <div>
+            <h2 className="mb-4 text-lg font-bold text-brand-navy">Ringkasan program</h2>
+            <KeyTable rows={[...PPT.summary, ['Yuran', `${PPT.price} (harga biasa ${PPT.priceWas})`]]} />
+          </div>
+        </div>
+      </section>
+
+      {/* Kenapa sekarang */}
+      <section className="py-16 md:py-20">
+        <div className="container-x">
+          <SectionHead eyebrow="Kenapa sekarang?" title="KPM tegaskan semula keperluan diploma untuk guru prasekolah" />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {PPT.whyNow.map((w) => (
+              <div key={w.stat} className="card p-6">
+                <p className="text-2xl font-extrabold text-brand-red">{w.stat}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{w.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proses */}
+      <section id="proses" className="scroll-mt-24 border-y border-slate-200 bg-slate-50 py-16 md:py-20">
+        <div className="container-x">
+          <SectionHead eyebrow="Aliran program" title="Bagaimana program berjalan" lead="Hanya 5 hari bersemuka di Kuala Lipis. Selebihnya dari rumah, dengan bimbingan group WhatsApp." />
+          <div className="mt-10"><Steps steps={PPT.steps} /></div>
+        </div>
+      </section>
+
+      {/* Unit kompetensi */}
+      <section className="py-16 md:py-20">
+        <div className="container-x">
+          <SectionHead eyebrow="NOSS P851-002-4:2025" title="Unit Kompetensi yang dinilai" lead="Semuanya kerja yang anda sudah buat setiap hari di tadika." />
+          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 shadow-card">
+            <table className="w-full text-left text-sm">
+              <thead className="hidden bg-brand-navy text-white md:table-header-group">
+                <tr><th className="px-5 py-3.5 font-semibold">CU</th><th className="px-5 py-3.5 font-semibold">Tajuk</th><th className="px-5 py-3.5 font-semibold">Aktiviti kerja</th></tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 bg-white">
+                {PPT.units.map(([cu, title, act]) => (
+                  <tr key={cu} className="block p-5 md:table-row md:p-0">
+                    <td className="block md:table-cell md:px-5 md:py-4"><span className="inline-flex rounded-lg bg-brand-red px-2.5 py-1 text-xs font-bold text-white">{cu}</span></td>
+                    <td className="mt-2 block font-semibold text-brand-navy md:mt-0 md:table-cell md:px-5 md:py-4">{title}</td>
+                    <td className="mt-1 block text-slate-600 md:mt-0 md:table-cell md:px-5 md:py-4">{act}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Dokumen + kelebihan */}
+      <section className="bg-grid border-y border-slate-200 py-16 md:py-20">
+        <div className="container-x grid gap-10 lg:grid-cols-2">
+          <div className="card p-7 md:p-9">
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-navy text-white"><Icon name="doc" /></span>
+              <h2 className="text-xl font-bold text-brand-navy">Dokumen diperlukan</h2>
+            </div>
+            <CheckList className="mt-6" items={PPT.documents} />
+          </div>
+          <div className="card p-7 md:p-9">
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-red text-white"><Icon name="badge" /></span>
+              <h2 className="text-xl font-bold text-brand-navy">Kenapa pilih kami</h2>
+            </div>
+            <CheckList className="mt-6" items={PPT.benefits.map((b) => b.title)} />
+          </div>
+        </div>
+      </section>
+
+      {/* Yuran */}
+      <section id="yuran" className="scroll-mt-24 py-16 md:py-20">
+        <div className="container-x">
+          <div className="mx-auto max-w-xl overflow-hidden rounded-3xl border border-slate-200 bg-white text-center shadow-card">
+            <div className="bg-brand-navy px-8 py-8 text-white">
+              <p className="text-sm text-white/70">Yuran PPT Diploma Pra-Sekolah</p>
+              <p className="mt-2 text-sm text-white/60 line-through">{PPT.priceWas}</p>
+              <p className="text-6xl font-extrabold">{PPT.price}</p>
+            </div>
+            <div className="p-8">
+              <p className="text-sm text-slate-600">Saiz batch minimum 4 calon. Batch bermula apabila cukup calon.</p>
+              <a href={CONTACT.waPPT} target="_blank" rel="noopener noreferrer" className="btn-cta mt-6 w-full">
+                <WhatsAppGlyph /> Semak kelayakan · WhatsApp {CONTACT.whatsappDisplay}
+              </a>
+              <p className="mt-3 text-xs text-slate-500">*Tertakluk semakan kelayakan JPK.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-slate-50 py-16 md:py-20">
+        <div className="container-x max-w-3xl">
+          <SectionHead center eyebrow="Soalan lazim" title="Soalan cikgu tentang PPT" />
+          <div className="mt-10"><Faq items={PPT.faqs} /></div>
         </div>
       </section>
     </>

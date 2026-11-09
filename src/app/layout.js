@@ -6,13 +6,24 @@ import JsonLd from '@/components/JsonLd'
 
 export const metadata = {
   metadataBase: new URL('https://tvetlipis.my'),
-  title: { default: 'TVET Lipis — Akademi Pembangunan Kemahiran USIM Kuala Lipis', template: '%s | TVET Lipis' },
-  description: 'Daftar program Diploma Kemahiran Malaysia (DKM) di TVET Lipis, Kuala Lipis Pahang. Program Pendidikan Awal Kanak-Kanak, Multimedia, Elektrik, Pra-Sekolah. Dibiayai PTPK. JPK K16005.',
-  keywords: ['TVET Lipis', 'Akademi Pembangunan Kemahiran USIM', 'kolej kemahiran Kuala Lipis', 'diploma kemahiran Malaysia', 'DKM Pahang', 'SKM Kuala Lipis', 'PTPK', 'JPK K16005', 'PPT pengiktirafan pencapaian terdahulu'],
-  openGraph: { type: 'website', locale: 'ms_MY', url: 'https://tvetlipis.my', siteName: 'TVET Lipis', title: 'TVET Lipis — Diploma Kemahiran Malaysia di Kuala Lipis', description: 'Program DKM/SKM di Kuala Lipis Pahang. Dibiayai PTPK. Daftar sekarang!' },
+  title: { default: 'TVET Lipis | PPT Diploma Pra-Sekolah (DKM Tahap 4)', template: '%s | TVET Lipis' },
+  description:
+    'Guru tadika tanpa diploma? Dapatkan Diploma Kemahiran Malaysia (DKM) Tahap 4 Pengajaran Prasekolah melalui PPT di TVET Lipis. 5 hari bersemuka, tiada peperiksaan bertulis. RM3,800.',
+  keywords: ['PPT prasekolah', 'DKM Tahap 4 Pengajaran Prasekolah', 'diploma guru tadika', 'Pengiktirafan Pencapaian Terdahulu', 'TVET Lipis', 'Kuala Lipis', 'JPK', 'P851-002-4:2025'],
+  openGraph: {
+    type: 'website',
+    locale: 'ms_MY',
+    url: 'https://tvetlipis.my',
+    siteName: 'TVET Lipis',
+    title: 'Pengalaman anda → Diploma | TVET Lipis',
+    description: 'PPT Diploma Pra-Sekolah (DKM Tahap 4). 5 hari bersemuka, bimbingan WhatsApp, penilaian amali oleh JPK.',
+    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://tvetlipis.my' },
 }
+
+export const viewport = { themeColor: '#063E87' }
 
 export default function RootLayout({ children }) {
   return (
