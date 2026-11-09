@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     <footer className="bg-brand-navyink text-white/75">
       {/* CTA band */}
-      <div className="bg-brand-navy">
-        <div className="container-x flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
+      <div className="bg-hero relative overflow-hidden">
+        <div className="container-x relative flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
           <div>
             <p className="text-2xl md:text-3xl font-bold text-white">Pengalaman anda <span className="text-brand-yellow">→</span> Diploma.</p>
             <p className="mt-1 text-white/70">Semak kelayakan PPT Diploma Pra-Sekolah anda hari ini.</p>

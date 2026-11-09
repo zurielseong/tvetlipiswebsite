@@ -11,21 +11,45 @@ export function SectionHead({ eyebrow, title, lead, center = false, light = fals
   )
 }
 
-export function PageHero({ crumb, title, lead, children }) {
+/* Bentuk hiasan terapung (bulatan, cincin, titik) */
+export function Deco({ variant = 'light' }) {
+  const ring = variant === 'light' ? 'border-white/25' : 'border-brand-navy/10'
+  const dot = variant === 'light' ? 'bg-white/30' : 'bg-brand-red/20'
   return (
-    <section className="relative overflow-hidden bg-brand-navy">
-      <div className="absolute inset-0 opacity-[.12] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:32px_32px]" />
-      <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-red/40 blur-3xl" />
-      <div className="absolute -bottom-24 right-1/3 h-56 w-56 rounded-full bg-brand-yellow/25 blur-3xl" />
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+      <span className={`animate-floaty absolute -right-10 top-10 hidden h-40 sm:block w-40 rounded-full border-[14px] ${ring}`} />
+      <span className="animate-floaty absolute right-[44%] top-[7%] hidden h-5 w-5 lg:block rounded-full bg-brand-yellow [animation-delay:1.5s]" />
+      <span className={`animate-floaty absolute bottom-[24%] right-[34%] h-3 w-3 rounded-full ${dot} [animation-delay:3s]`} />
+      <span className="animate-floaty absolute bottom-[20%] right-[4%] hidden h-8 w-8 md:block rotate-12 rounded-lg bg-brand-red/40 [animation-delay:2s]" />
+      <svg className="absolute right-[14%] top-[5%] hidden h-16 w-28 text-brand-yellow/70 lg:block" viewBox="0 0 120 40" fill="none">
+        <path d="M2 20c12-18 24-18 36 0s24 18 36 0 24-18 36 0" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+      </svg>
+    </div>
+  )
+}
+
+/* Pemisah gelombang di bawah seksyen berwarna */
+export function Wave({ fill = '#ffffff', className = '' }) {
+  return (
+    <svg aria-hidden="true" className={`block h-12 w-full md:h-20 ${className}`} viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill={fill} d="M0 48c160-32 320-40 480-24s320 48 480 40 320-48 480-48v64H0z" />
+    </svg>
+  )
+}
+
+export function PageHero({ crumb, title, lead, children, waveFill = '#FFFBEF' }) {
+  return (
+    <section className="bg-hero relative overflow-hidden">
+      <Deco />
       <div className="container-x relative py-14 md:py-20">
-        <nav className="text-xs text-white/60" aria-label="Breadcrumb">
+        <nav className="text-xs text-white/70" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-white">Utama</Link> <span className="mx-1.5">/</span> <span className="text-white">{crumb}</span>
         </nav>
         <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-white md:text-5xl">{title}</h1>
-        {lead && <p className="mt-4 max-w-2xl text-base text-white/80 md:text-lg">{lead}</p>}
+        {lead && <p className="mt-4 max-w-2xl text-base text-white/85 md:text-lg">{lead}</p>}
         {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
       </div>
-      <div className="h-1.5 bg-[linear-gradient(90deg,#063E87_0_33%,#D11F48_33%_66%,#FFC400_66%)]" />
+      <Wave fill={waveFill} className="relative -mb-px" />
     </section>
   )
 }

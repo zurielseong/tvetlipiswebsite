@@ -16,7 +16,7 @@ export default function HubungiPage() {
   return (
     <>
       <PageHero crumb="Hubungi" title="Hubungi kami" lead="Cara paling cepat: WhatsApp. Pilih program dan mesej anda akan diisi secara automatik." />
-      <section className="bg-grid py-16 md:py-20">
+      <section className="bg-sunny py-16 md:py-20">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.1fr]">
           <div className="space-y-5">
             {cards.map((c) => (

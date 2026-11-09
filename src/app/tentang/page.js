@@ -15,7 +15,7 @@ export default function TentangPage() {
   return (
     <>
       <PageHero crumb="Tentang Kami" title="Tentang TVET Lipis" lead={ABOUT.intro} />
-      <section className="bg-grid py-16 md:py-20">
+      <section className="bg-sunny py-16 md:py-20">
         <div className="container-x">
           <div className="grid gap-5 md:grid-cols-3">
             {ABOUT.points.map((p, i) => (

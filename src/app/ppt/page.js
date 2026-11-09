@@ -24,7 +24,7 @@ export default function PPTPage() {
       </PageHero>
 
       {/* Ringkasan */}
-      <section className="bg-grid py-16 md:py-20">
+      <section className="bg-sunny py-16 md:py-20">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div>
             <SectionHead eyebrow="Apa itu PPT?" title="Pengiktirafan Pencapaian Terdahulu" lead={PPT.whatIs} />
@@ -56,7 +56,7 @@ export default function PPTPage() {
       </section>
 
       {/* Proses */}
-      <section id="proses" className="scroll-mt-24 border-y border-slate-200 bg-slate-50 py-16 md:py-20">
+      <section id="proses" className="bg-sky scroll-mt-24 py-16 md:py-20">
         <div className="container-x">
           <SectionHead eyebrow="Aliran program" title="Bagaimana program berjalan" lead="Hanya 5 hari bersemuka di Kuala Lipis. Selebihnya dari rumah, dengan bimbingan group WhatsApp." />
           <div className="mt-10"><Steps steps={PPT.steps} /></div>
@@ -87,7 +87,7 @@ export default function PPTPage() {
       </section>
 
       {/* Dokumen + kelebihan */}
-      <section className="bg-grid border-y border-slate-200 py-16 md:py-20">
+      <section className="bg-blush py-16 md:py-20">
         <div className="container-x grid gap-10 lg:grid-cols-2">
           <div className="card p-7 md:p-9">
             <div className="flex items-center gap-3">
@@ -110,7 +110,7 @@ export default function PPTPage() {
       <section id="yuran" className="scroll-mt-24 py-16 md:py-20">
         <div className="container-x">
           <div className="mx-auto max-w-xl overflow-hidden rounded-3xl border border-slate-200 bg-white text-center shadow-card">
-            <div className="bg-brand-navy px-8 py-8 text-white">
+            <div className="bg-hero relative overflow-hidden px-8 py-8 text-white">
               <p className="text-sm text-white/70">Yuran PPT Diploma Pra-Sekolah</p>
               <p className="mt-2 text-sm text-white/60 line-through">{PPT.priceWas}</p>
               <p className="text-6xl font-extrabold">{PPT.price}</p>
@@ -127,7 +127,7 @@ export default function PPTPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 py-16 md:py-20">
+      <section className="bg-sky py-16 md:py-20">
         <div className="container-x max-w-3xl">
           <SectionHead center eyebrow="Soalan lazim" title="Soalan cikgu tentang PPT" />
           <div className="mt-10"><Faq items={PPT.faqs} /></div>
