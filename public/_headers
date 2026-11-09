@@ -1,0 +1,7 @@
+# Cloudflare Pages: stop search engines indexing the preview addresses.
+# Remove the baru.tvetlipis.my block when it becomes the live site.
+https://baru.tvetlipis.my/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
