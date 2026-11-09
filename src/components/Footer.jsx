@@ -50,7 +50,7 @@ export default function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Pautan</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             {NAV.map((l) => (
-              <li key={l.href}><Link href={l.href} className="hover:text-brand-yellow">{l.label}</Link></li>
+              <li key={l.href}><Link href={l.href} className="hover:text-brand-yellow">{l.label}{l.sub ? ` (${l.sub})` : ''}</Link></li>
             ))}
             <li><a href={CONTACT.upTvet} target="_blank" rel="noopener noreferrer" className="hover:text-brand-yellow">UP_TVET (mohon.tvet.gov.my)</a></li>
           </ul>

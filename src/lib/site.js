@@ -206,8 +206,8 @@ export const PROGRAMS = [
 
 export const NAV = [
   { href: '/', label: 'Utama' },
-  { href: '/ppt/', label: 'PPT Diploma Pra-Sekolah' },
-  { href: '/program/', label: 'Program Sepenuh Masa' },
+  { href: '/program/', label: 'Program Sepenuh Masa', sub: 'Lepasan SPM' },
+  { href: '/ppt/', label: 'Program PPT', sub: 'Golongan Kerja' },
   { href: '/tentang/', label: 'Tentang Kami' },
   { href: '/hubungi/', label: 'Hubungi' },
 ]
