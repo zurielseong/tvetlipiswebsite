@@ -42,3 +42,12 @@ Perkara berikut sengaja TIDAK dipaparkan sehingga disahkan:
 - Logo rasmi: kini guna placeholder dalam `src/components/Logo.jsx`; letak fail dalam `public/` dan gantikan.
 - Poster PPT (1:1, 4:5, 9:16, 1.91:1) boleh dimasukkan ke hero atau galeri.
 - Pautan Facebook dalam `site.js` kini pautan carian; gantikan dengan URL halaman sebenar.
+
+## Deploy (Cloudflare Workers)
+
+Cloudflare Workers Builds, production branch `main`:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy` (reads `wrangler.jsonc`, uploads `./out`)
+
+Preview: `baru.tvetlipis.my` (noindex via `public/_headers`). Go live by adding `tvetlipis.my` under the Worker's Domains tab.
