@@ -23,7 +23,7 @@ export const metadata = {
   alternates: { canonical: 'https://tvetlipis.my' },
 }
 
-export const viewport = { themeColor: '#063E87' }
+export const viewport = { themeColor: '#ffe9ce' }
 
 export default function RootLayout({ children }) {
   return (
